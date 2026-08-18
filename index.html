@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 <title>شرکت تجارتی بنائی خالد</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -14,96 +16,258 @@
 body {
     margin: 0;
     font-family: Tahoma, Arial, sans-serif;
-    background: #f2f5f7;
+    background:
+        radial-gradient(circle at top right, #dce8f2, transparent 35%),
+        linear-gradient(135deg, #eef3f7, #f8fafc);
     color: #17212b;
 }
 
 .container {
-    max-width: 600px;
+    width: 100%;
+    max-width: 620px;
     margin: auto;
-    padding: 25px 15px;
+    padding: 18px 14px 40px;
 }
 
 .card {
-    background: white;
-    border-radius: 25px;
-    padding: 28px 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.96);
+    border-radius: 34px;
+    padding: 30px 20px 25px;
+    box-shadow:
+        0 20px 60px rgba(20,35,50,0.12),
+        0 3px 10px rgba(20,35,50,0.05);
+    border: 1px solid rgba(255,255,255,0.8);
 }
 
+/* LOGO */
+
 .logo {
-    width: 90px;
-    height: 90px;
-    margin: auto;
-    border-radius: 25px;
-    background: #17212b;
+    width: 118px;
+    height: 118px;
+    margin: 2px auto 20px;
+
+    border-radius: 32px;
+
+    background: linear-gradient(145deg, #17212b, #263746);
+
     color: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    font-weight: bold;
+
+    font-family: Georgia, serif;
+    font-size: 48px;
+    letter-spacing: -3px;
+
+    box-shadow:
+        0 15px 30px rgba(23,33,43,0.22);
 }
+
+/* TITLE */
 
 h1 {
     text-align: center;
-    font-size: 24px;
-    margin: 18px 0 8px;
+    font-size: 27px;
+    margin: 8px 0 10px;
+    font-weight: 700;
 }
 
-.description {
+.subtitle {
     text-align: center;
-    color: #68727d;
-    font-size: 15px;
-    margin-bottom: 25px;
-}
-
-.section-title {
-    font-size: 17px;
-    font-weight: bold;
-    margin: 22px 0 10px;
-}
-
-.button {
-    display: block;
-    text-decoration: none;
-    color: #17212b;
-    background: #f1f4f6;
-    padding: 14px;
-    margin: 8px 0;
-    border-radius: 14px;
-    font-size: 15px;
-    transition: 0.2s;
-}
-
-.button:hover {
-    background: #e5eaee;
-}
-
-.address {
-    background: #f7f9fa;
-    padding: 15px;
-    border-radius: 14px;
+    color: #687580;
+    font-size: 16px;
     line-height: 2;
+    margin-bottom: 28px;
+}
+
+/* INTRO */
+
+.intro {
+    text-align: center;
+    background: #f4f7f9;
+    border-radius: 18px;
+    padding: 14px;
+    margin-bottom: 28px;
+    color: #53616c;
     font-size: 14px;
 }
 
-.soon {
-    background: #f7f9fa;
-    padding: 14px;
-    border-radius: 14px;
-    color: #8a939b;
-    text-align: center;
+/* SECTION */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    margin: 25px 4px 12px;
 }
+
+/* CONTACT BUTTON */
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    text-decoration: none;
+    color: #17212b;
+
+    background: #f1f5f8;
+
+    border-radius: 19px;
+
+    padding: 14px 16px;
+
+    margin: 9px 0;
+
+    transition: 0.2s ease;
+
+    border: 1px solid #e8edf1;
+}
+
+.contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(20,35,50,0.08);
+}
+
+.contact:active {
+    transform: scale(0.98);
+}
+
+/* ICON */
+
+.icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 25px;
+}
+
+.phone {
+    background: linear-gradient(145deg,#263746,#17212b);
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+.instagram {
+    background: linear-gradient(
+        135deg,
+        #833AB4,
+        #C13584,
+        #E1306C,
+        #F77737,
+        #FCAF45
+    );
+}
+
+.telegram {
+    background: #229ED9;
+}
+
+/* TEXT */
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-title {
+    font-size: 14px;
+    color: #7b8790;
+    margin-bottom: 4px;
+}
+
+.contact-number {
+    font-size: 17px;
+    font-family: Arial, sans-serif;
+    direction: ltr;
+    text-align: right;
+}
+
+/* ARROW */
+
+.arrow {
+    font-size: 22px;
+    color: #9aa5ad;
+}
+
+/* SOCIAL */
+
+.social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: #17212b;
+
+    background: #f4f7f9;
+
+    padding: 13px;
+
+    border-radius: 18px;
+
+    transition: 0.2s;
+}
+
+.social:hover {
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
 
 .footer {
     text-align: center;
-    color: #8a939b;
+
+    margin-top: 30px;
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f2;
+
+    color: #8a959d;
     font-size: 12px;
-    margin-top: 25px;
+    line-height: 2;
 }
+
+/* MOBILE */
+
+@media (max-width: 380px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
@@ -111,102 +275,253 @@ h1 {
 
 <div class="card">
 
+
+<!-- LOGO -->
+
 <div class="logo">
-BK
+    BK
 </div>
+
+
+<!-- COMPANY -->
 
 <h1>
-شرکت تجارتی بنائی خالد
+    شرکت تجارتی بنائی خالد
 </h1>
 
-<div class="description">
-تورید محصولات صحی و لوازم طبی
+<div class="subtitle">
+    توزیع محصولات صحی و لوازم طبی
 </div>
 
+
+<div class="intro">
+    برای ارتباط با ما، از گزینه‌های زیر استفاده کنید.
+</div>
+
+
+
+<!-- PHONE -->
 
 <div class="section-title">
-📞 شماره‌های تماس
+    📞 شماره‌های تماس
 </div>
 
-<a class="button" href="tel:0797038044">
-📞 تماس با 0797038044
+
+<a class="contact" href="tel:0797038044">
+
+    <div class="icon phone">
+        ☎
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">
+            تماس مستقیم
+        </div>
+
+        <div class="contact-number">
+            0797038044
+        </div>
+    </div>
+
+    <div class="arrow">
+        ‹
+    </div>
+
 </a>
 
-<a class="button" href="tel:0792131886">
-📞 تماس با 0792131886
+
+
+<a class="contact" href="tel:0792131886">
+
+    <div class="icon phone">
+        ☎
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">
+            تماس مستقیم
+        </div>
+
+        <div class="contact-number">
+            0792131886
+        </div>
+    </div>
+
+    <div class="arrow">
+        ‹
+    </div>
+
 </a>
 
-<a class="button" href="tel:0795287181">
-📞 تماس با 0795287181
+
+
+<a class="contact" href="tel:0795287181">
+
+    <div class="icon phone">
+        ☎
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">
+            تماس مستقیم
+        </div>
+
+        <div class="contact-number">
+            0795287181
+        </div>
+    </div>
+
+    <div class="arrow">
+        ‹
+    </div>
+
 </a>
 
+
+
+
+<!-- WHATSAPP -->
 
 <div class="section-title">
-💬 واتساپ
+    💬 واتساپ
 </div>
 
-<a class="button" href="https://wa.me/93779765000">
-💬 واتساپ 0779765000
+
+<a class="contact" href="https://wa.me/93779765000">
+
+    <div class="icon whatsapp">
+        ☎
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">
+            واتساپ
+        </div>
+
+        <div class="contact-number">
+            0779765000
+        </div>
+    </div>
+
+    <div class="arrow">
+        ‹
+    </div>
+
 </a>
 
-<a class="button" href="https://wa.me/93795287181">
-💬 واتساپ 0795287181
+
+
+<a class="contact" href="https://wa.me/93795287181">
+
+    <div class="icon whatsapp">
+        ☎
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">
+            واتساپ
+        </div>
+
+        <div class="contact-number">
+            0795287181
+        </div>
+    </div>
+
+    <div class="arrow">
+        ‹
+    </div>
+
 </a>
 
-<a class="button" href="https://wa.me/93792131883">
-💬 واتساپ 0792131883
+
+
+<a class="contact" href="https://wa.me/93792131883">
+
+    <div class="icon whatsapp">
+        ☎
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-title">
+            واتساپ
+        </div>
+
+        <div class="contact-number">
+            0792131883
+        </div>
+    </div>
+
+    <div class="arrow">
+        ‹
+    </div>
+
 </a>
 
 
+
+
+<!-- SOCIAL MEDIA -->
+
 <div class="section-title">
-✉️ ایمیل
+    🌐 شبکه‌های اجتماعی
 </div>
 
-<a class="button" href="mailto:banai654321@gmail.com">
-✉️ banai654321@gmail.com
+
+<div class="social-grid">
+
+
+<a class="social"
+   href="https://instagram.com/USERNAME"
+   target="_blank">
+
+    <div class="icon instagram">
+        ◎
+    </div>
+
+    <strong>
+        اینستاگرام
+    </strong>
+
 </a>
 
 
-<div class="section-title">
-📍 آدرس شرکت
-</div>
 
-<div class="address">
+<a class="social"
+   href="https://t.me/USERNAME"
+   target="_blank">
 
-افغانستان - هرات - شهر نو<br>
-جاده عیدگاه<br>
-مارکت میرال اعلم<br>
-طبقه 2<br>
-دوکان نمبر (73-27)
+    <div class="icon telegram">
+        ➤
+    </div>
 
-</div>
+    <strong>
+        تلگرام
+    </strong>
+
+</a>
 
 
-<div class="section-title">
-📢 کانال تلگرام
-</div>
-
-<div class="soon">
-به‌زودی اضافه می‌شود
 </div>
 
 
-<div class="section-title">
-🌐 وب‌سایت
-</div>
 
-<div class="soon">
-به‌زودی اضافه می‌شود
-</div>
 
+<!-- FOOTER -->
 
 <div class="footer">
-شرکت تجارتی بنائی خالد
-</div>
+
+    شرکت تجارتی بنائی خالد
+
+    <br>
+
+    محصولات صحی و لوازم طبی
 
 </div>
 
+
 </div>
+</div>
+
 
 </body>
-  </html>
+    </html>
