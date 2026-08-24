@@ -1,312 +1,46 @@
 from pathlib import Path
+import base64
 
-html = r'''<!DOCTYPE html>
+img_path = Path("/mnt/data/9708.png")
+data = base64.b64encode(img_path.read_bytes()).decode("ascii")
+
+html = f"""<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0b66c3">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>شرکت تجارتی بنائی خالد</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:Vazirmatn,Tahoma,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 15% 8%,rgba(255,255,255,.95) 0 10%,transparent 30%),
-    radial-gradient(circle at 90% 45%,rgba(190,220,255,.42),transparent 34%),
-    linear-gradient(135deg,#edf6ff 0%,#f9fcff 45%,#e5f1ff 100%);
-  color:#063b78;
-  min-height:100vh;
-  overflow-x:hidden;
-}
-body:before,body:after{
-  content:"";
-  position:fixed;
-  pointer-events:none;
-  z-index:0;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.75);
-}
-body:before{
-  width:560px;height:560px;left:-250px;top:-190px;
-  box-shadow:80px 40px 0 0 rgba(255,255,255,.22),120px 110px 0 0 rgba(255,255,255,.14);
-}
-body:after{
-  width:620px;height:620px;right:-350px;top:230px;
-  box-shadow:-80px 70px 0 0 rgba(255,255,255,.25);
-}
-.page{
-  position:relative;z-index:1;
-  width:min(100%,980px);
-  margin:0 auto;
-  padding:42px 34px 28px;
-}
-.logo-wrap{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin:0 auto 18px;
-}
-.logo{
-  display:block;
-  width:min(560px,72vw);
-  max-height:210px;
-  object-fit:contain;
-  object-position:center;
-}
-.title{
-  text-align:center;
-  font-size:clamp(28px,4.1vw,49px);
-  line-height:1.35;
-  font-weight:800;
-  margin:0;
-  color:#073d7b;
-}
-.english{
-  text-align:center;
-  direction:ltr;
-  font-family:Georgia,"Times New Roman",serif;
-  color:#d34a2d;
-  font-size:clamp(25px,3.5vw,40px);
-  font-weight:700;
-  margin:8px 0 0;
-}
-.subtitle{
-  text-align:center;
-  font-size:clamp(18px,2.6vw,27px);
-  color:#243f5e;
-  margin:35px 0 34px;
-  font-weight:500;
-}
-.section-title{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  margin:18px 0 15px;
-  font-size:clamp(24px,3.4vw,36px);
-  font-weight:800;
-}
-.section-title:before,.section-title:after{
-  content:"";
-  width:76px;height:3px;
-  border-radius:5px;
-  background:#1685cc;
-}
-.section-title .icon{
-  width:48px;height:48px;
-  border-radius:50%;
-  background:#fff;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 3px 12px rgba(0,65,130,.15);
-  font-size:25px;
-}
-.whatsapp-title{color:#15a84c}
-.whatsapp-title:before,.whatsapp-title:after{background:#35bf61}
-.cards{
-  display:grid;
-  gap:10px;
-}
-.card{
-  min-height:78px;
-  background:rgba(255,255,255,.94);
-  border:1px solid rgba(125,160,195,.22);
-  border-radius:18px;
-  box-shadow:0 5px 14px rgba(20,76,125,.14);
-  display:flex;
-  align-items:center;
-  padding:8px 18px;
-  text-decoration:none;
-  color:#0b3767;
-  direction:ltr;
-  transition:transform .12s ease;
-}
-.card:active{transform:scale(.99)}
-.number{
-  flex:1;
-  text-align:center;
-  font-size:clamp(20px,3vw,28px);
-  font-weight:700;
-  letter-spacing:.4px;
-}
-.action{
-  width:58px;height:58px;
-  border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  color:white;
-  font-size:31px;
-  font-family:Arial,sans-serif;
-  font-weight:700;
-}
-.phone .action{background:linear-gradient(145deg,#2297e6,#1166ca)}
-.wa .action{background:linear-gradient(145deg,#2dd965,#0db94c)}
-.socials{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-  margin-top:12px;
-}
-.social{
-  background:rgba(255,255,255,.94);
-  border-radius:18px;
-  min-height:102px;
-  box-shadow:0 5px 14px rgba(20,76,125,.12);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-  text-decoration:none;
-  color:#073d7b;
-}
-.social-icon{
-  width:62px;height:62px;border-radius:18px;
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:34px;font-weight:800;
-}
-.instagram{background:linear-gradient(135deg,#8a3ab9,#e95950,#fccc63)}
-.telegram{background:#29a9e8;border-radius:50%}
-.social-text{text-align:center}
-.social-name{font-size:21px;font-weight:700}
-.social-user{font-size:19px;direction:ltr;margin-top:3px}
-.features{
-  margin-top:28px;
-  background:rgba(255,255,255,.88);
-  border-radius:22px;
-  box-shadow:0 5px 16px rgba(20,76,125,.13);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  padding:22px 8px;
-}
-.feature{
-  text-align:center;
-  padding:0 12px;
-  border-left:1px solid #cbd9e7;
-}
-.feature:last-child{border-left:0}
-.feature-icon{font-size:31px;margin-bottom:7px}
-.feature-title{font-size:17px;font-weight:800}
-.feature-sub{font-size:14px;margin-top:4px;color:#233f5e}
-.footer{
-  margin-top:18px;
-  background:linear-gradient(135deg,#168ddd,#075eb9);
-  color:#fff;
-  border-radius:25px 25px 0 0;
-  text-align:center;
-  padding:18px 12px;
-  font-size:15px;
-}
-@media(max-width:650px){
-  .page{padding:28px 18px 18px}
-  .logo{width:86vw;max-height:160px}
-  .subtitle{margin:24px 0 26px}
-  .section-title:before,.section-title:after{width:52px}
-  .card{min-height:76px}
-  .action{width:55px;height:55px}
-  .socials{gap:10px}
-  .social{min-height:92px;gap:10px;padding:8px}
-  .social-icon{width:54px;height:54px}
-  .social-name{font-size:18px}
-  .social-user{font-size:16px}
-  .features{grid-template-columns:repeat(2,1fr);gap:18px}
-  .feature:nth-child(2){border-left:0}
-  .feature:nth-child(1),.feature:nth-child(2){padding-bottom:12px}
-}
-@media(max-width:430px){
-  .title{font-size:27px}
-  .english{font-size:23px}
-  .section-title{font-size:23px}
-  .section-title:before,.section-title:after{width:38px}
-  .number{font-size:20px}
-  .socials{grid-template-columns:1fr}
-}
+*{{box-sizing:border-box}}
+html,body{{margin:0;padding:0;background:#eef6ff}}
+.page{{position:relative;width:100%;max-width:1028px;margin:auto;line-height:0}}
+.page img{{display:block;width:100%;height:auto}}
+a{{position:absolute;display:block;background:transparent;-webkit-tap-highlight-color:transparent}}
+.phone1{{left:17%;top:31.0%;width:66%;height:5.3%}}
+.phone2{{left:17%;top:37.0%;width:66%;height:5.3%}}
+.phone3{{left:17%;top:43.0%;width:66%;height:5.3%}}
+.wa1{{left:17%;top:54.2%;width:66%;height:5.2%}}
+.wa2{{left:17%;top:59.5%;width:66%;height:5.2%}}
+.wa3{{left:17%;top:64.8%;width:66%;height:5.2%}}
+.instagram{{left:7%;top:70.8%;width:42%;height:7.2%}}
+.telegram{{right:7%;top:70.8%;width:42%;height:7.2%}}
 </style>
 </head>
-
 <body>
-<main class="page">
-
-  <!-- اسم فایل لوگویی که در GitHub آپلود کرده‌ای را اینجا بگذار.
-       اگر اسم فایل logo.png است، همین خط را تغییر نده. -->
-  <div class="logo-wrap">
-    <img class="logo" src="logo.png" alt="شرکت تجارتی بنائی خالد">
-  </div>
-
-  <h1 class="title">شرکت تجارتی بنائی خالد</h1>
-  <div class="english">Banai Khaled Trade Co.</div>
-  <div class="subtitle">توزیع محصولات صحی و لوازم طبی</div>
-
-  <div class="section-title">
-    <span>شماره‌های تماس</span>
-    <span class="icon">📞</span>
-  </div>
-
-  <div class="cards">
-    <a class="card phone" href="tel:0797038044">
-      <span class="number">0797038044</span><span class="action">☎</span>
-    </a>
-    <a class="card phone" href="tel:0792131886">
-      <span class="number">0792131886</span><span class="action">☎</span>
-    </a>
-    <a class="card phone" href="tel:0795287181">
-      <span class="number">0795287181</span><span class="action">☎</span>
-    </a>
-  </div>
-
-  <div class="section-title whatsapp-title">
-    <span>واتساپ</span>
-    <span class="icon">◉</span>
-  </div>
-
-  <div class="cards">
-    <a class="card wa" href="https://wa.me/93779765000">
-      <span class="number">0779765000</span><span class="action">◉</span>
-    </a>
-    <a class="card wa" href="https://wa.me/93795287181">
-      <span class="number">0795287181</span><span class="action">◉</span>
-    </a>
-    <a class="card wa" href="https://wa.me/93792131883">
-      <span class="number">0792131883</span><span class="action">◉</span>
-    </a>
-  </div>
-
-  <div class="section-title">
-    <span>شبکه‌های اجتماعی</span>
-    <span class="icon">●</span>
-  </div>
-
-  <div class="socials">
-    <a class="social" href="#" aria-label="Instagram">
-      <span class="social-icon instagram">◎</span>
-      <span class="social-text"><div class="social-name">اینستاگرام</div><div class="social-user">@USERNAME</div></span>
-    </a>
-    <a class="social" href="#" aria-label="Telegram">
-      <span class="social-icon telegram">➤</span>
-      <span class="social-text"><div class="social-name">تلگرام</div><div class="social-user">@USERNAME</div></span>
-    </a>
-  </div>
-
-  <div class="features">
-    <div class="feature"><div class="feature-icon">🛡️</div><div class="feature-title">محصولات اصیل</div><div class="feature-sub">با ضمانت کیفیت</div></div>
-    <div class="feature"><div class="feature-icon">🏅</div><div class="feature-title">تجربه معتبر</div><div class="feature-sub">خدمات مطمئن</div></div>
-    <div class="feature"><div class="feature-icon">🚚</div><div class="feature-title">تحویل سریع</div><div class="feature-sub">در سراسر کشور</div></div>
-    <div class="feature"><div class="feature-icon">🎧</div><div class="feature-title">پشتیبانی 24/7</div><div class="feature-sub">همیشه در کنار شما</div></div>
-  </div>
-
-  <div class="footer">© 2025 Banai Khaled Trade Co. — تمامی حقوق محفوظ است</div>
-</main>
+<div class="page">
+<img src="data:image/png;base64,{data}" alt="شرکت تجارتی بنائی خالد">
+<a class="phone1" href="tel:0797038044"></a>
+<a class="phone2" href="tel:0792131886"></a>
+<a class="phone3" href="tel:0795287181"></a>
+<a class="wa1" href="https://wa.me/93779765000"></a>
+<a class="wa2" href="https://wa.me/93795287181"></a>
+<a class="wa3" href="https://wa.me/93792131883"></a>
+<a class="instagram" href="#"></a>
+<a class="telegram" href="#"></a>
+</div>
 </body>
-</html>
-'''
+</html>"""
 
-out = Path("/mnt/data/index_banai_khaled_exact.html")
+out = Path("/mnt/data/index_exact_final.html")
 out.write_text(html, encoding="utf-8")
 print(out)
-          
