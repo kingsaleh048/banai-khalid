@@ -1,621 +1,312 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#075bb5">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0b66c3">
 <title>شرکت تجارتی بنائی خالد</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:
-    radial-gradient(circle at 10% 10%,#ffffff 0,#eaf4ff 45%,#dceeff 100%);
-    color:#063b78;
-    min-height:100vh;
+  font-family:Vazirmatn,Tahoma,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 15% 8%,rgba(255,255,255,.95) 0 10%,transparent 30%),
+    radial-gradient(circle at 90% 45%,rgba(190,220,255,.42),transparent 34%),
+    linear-gradient(135deg,#edf6ff 0%,#f9fcff 45%,#e5f1ff 100%);
+  color:#063b78;
+  min-height:100vh;
+  overflow-x:hidden;
 }
-
+body:before,body:after{
+  content:"";
+  position:fixed;
+  pointer-events:none;
+  z-index:0;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.75);
+}
+body:before{
+  width:560px;height:560px;left:-250px;top:-190px;
+  box-shadow:80px 40px 0 0 rgba(255,255,255,.22),120px 110px 0 0 rgba(255,255,255,.14);
+}
+body:after{
+  width:620px;height:620px;right:-350px;top:230px;
+  box-shadow:-80px 70px 0 0 rgba(255,255,255,.25);
+}
 .page{
-    max-width:900px;
-    width:100%;
-    margin:auto;
-    padding:25px 18px 30px;
+  position:relative;z-index:1;
+  width:min(100%,980px);
+  margin:0 auto;
+  padding:42px 34px 28px;
 }
-
-/* LOGO */
-.header{
-    text-align:center;
-    padding-bottom:20px;
+.logo-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:0 auto 18px;
 }
-
 .logo{
-    width:150px;
-    height:150px;
-    margin:0 auto 18px;
-    background:white;
-    border-radius:30px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    box-shadow:0 8px 30px rgba(0,70,150,.14);
+  display:block;
+  width:min(560px,72vw);
+  max-height:210px;
+  object-fit:contain;
+  object-position:center;
 }
-
-.logo img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    padding:8px;
+.title{
+  text-align:center;
+  font-size:clamp(28px,4.1vw,49px);
+  line-height:1.35;
+  font-weight:800;
+  margin:0;
+  color:#073d7b;
 }
-
-h1{
-    font-size:34px;
-    font-weight:800;
-    color:#063b85;
-    margin-bottom:10px;
-}
-
 .english{
-    direction:ltr;
-    font-family:Georgia,serif;
-    font-size:27px;
-    color:#d63b27;
-    margin-bottom:14px;
+  text-align:center;
+  direction:ltr;
+  font-family:Georgia,"Times New Roman",serif;
+  color:#d34a2d;
+  font-size:clamp(25px,3.5vw,40px);
+  font-weight:700;
+  margin:8px 0 0;
 }
-
 .subtitle{
-    font-size:20px;
-    color:#173c68;
+  text-align:center;
+  font-size:clamp(18px,2.6vw,27px);
+  color:#243f5e;
+  margin:35px 0 34px;
+  font-weight:500;
 }
-
-/* TITLES */
 .section-title{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    margin:20px 0 12px;
-    font-size:24px;
-    font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin:18px 0 15px;
+  font-size:clamp(24px,3.4vw,36px);
+  font-weight:800;
 }
-
-.line{
-    width:75px;
-    height:2px;
-    background:#1686d8;
+.section-title:before,.section-title:after{
+  content:"";
+  width:76px;height:3px;
+  border-radius:5px;
+  background:#1685cc;
 }
-
-.whatsapp-title{
-    color:#16a84d;
+.section-title .icon{
+  width:48px;height:48px;
+  border-radius:50%;
+  background:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 3px 12px rgba(0,65,130,.15);
+  font-size:25px;
 }
-
-/* CONTACT CARDS */
+.whatsapp-title{color:#15a84c}
+.whatsapp-title:before,.whatsapp-title:after{background:#35bf61}
 .cards{
-    display:grid;
-    gap:12px;
+  display:grid;
+  gap:10px;
 }
-
 .card{
-    min-height:68px;
-    background:rgba(255,255,255,.96);
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    padding:8px 20px;
-    box-shadow:0 5px 18px rgba(0,70,150,.12);
-    transition:.2s;
+  min-height:78px;
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(125,160,195,.22);
+  border-radius:18px;
+  box-shadow:0 5px 14px rgba(20,76,125,.14);
+  display:flex;
+  align-items:center;
+  padding:8px 18px;
+  text-decoration:none;
+  color:#0b3767;
+  direction:ltr;
+  transition:transform .12s ease;
 }
-
-.card:active{
-    transform:scale(.99);
-}
-
+.card:active{transform:scale(.99)}
 .number{
-    flex:1;
-    text-align:center;
-    direction:ltr;
-    font-family:Georgia,serif;
-    font-size:25px;
-    color:#163f70;
+  flex:1;
+  text-align:center;
+  font-size:clamp(20px,3vw,28px);
+  font-weight:700;
+  letter-spacing:.4px;
 }
-
-.icon{
-    width:48px;
-    height:48px;
-    border-radius:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
+.action{
+  width:58px;height:58px;
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  color:white;
+  font-size:31px;
+  font-family:Arial,sans-serif;
+  font-weight:700;
 }
-
-.phone{
-    background:#1689e8;
+.phone .action{background:linear-gradient(145deg,#2297e6,#1166ca)}
+.wa .action{background:linear-gradient(145deg,#2dd965,#0db94c)}
+.socials{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-top:12px;
 }
-
-.whatsapp{
-    background:#16c75b;
-}
-
-.icon svg{
-    width:29px;
-    height:29px;
-    fill:white;
-}
-
-/* MANAGEMENT */
-.manager{
-    margin-top:22px;
-    background:white;
-    border-radius:22px;
-    padding:18px 20px;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    box-shadow:0 5px 20px rgba(0,70,150,.12);
-}
-
-.person{
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    background:#0868c9;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-}
-
-.person svg{
-    width:38px;
-    height:38px;
-    fill:white;
-}
-
-.manager-info{
-    flex:1;
-    text-align:center;
-}
-
-.manager-title{
-    font-size:22px;
-    font-weight:bold;
-}
-
-.manager-name{
-    color:#e33b27;
-    font-size:20px;
-    margin:6px 0;
-}
-
-.manager-number{
-    direction:ltr;
-    font-family:Georgia,serif;
-    font-size:18px;
-}
-
-/* SOCIAL */
 .social{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+  background:rgba(255,255,255,.94);
+  border-radius:18px;
+  min-height:102px;
+  box-shadow:0 5px 14px rgba(20,76,125,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  text-decoration:none;
+  color:#073d7b;
 }
-
-.social-card{
-    background:white;
-    border-radius:20px;
-    padding:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    box-shadow:0 5px 18px rgba(0,70,150,.12);
-}
-
 .social-icon{
-    width:50px;
-    height:50px;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  width:62px;height:62px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:34px;font-weight:800;
 }
-
-.social-icon svg{
-    width:30px;
-    height:30px;
-    fill:white;
-}
-
-.instagram{
-    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
-}
-
-.telegram{
-    background:#20a9e8;
-}
-
-.social-name{
-    font-size:17px;
-    color:#173c68;
-}
-
-.username{
-    direction:ltr;
-    color:#555;
-    font-size:15px;
-    margin-top:4px;
-}
-
-/* FEATURES */
+.instagram{background:linear-gradient(135deg,#8a3ab9,#e95950,#fccc63)}
+.telegram{background:#29a9e8;border-radius:50%}
+.social-text{text-align:center}
+.social-name{font-size:21px;font-weight:700}
+.social-user{font-size:19px;direction:ltr;margin-top:3px}
 .features{
-    margin-top:22px;
-    background:white;
-    border-radius:22px;
-    padding:20px 5px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    box-shadow:0 5px 20px rgba(0,70,150,.12);
+  margin-top:28px;
+  background:rgba(255,255,255,.88);
+  border-radius:22px;
+  box-shadow:0 5px 16px rgba(20,76,125,.13);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:22px 8px;
 }
-
 .feature{
-    text-align:center;
-    padding:5px 10px;
-    border-left:1px solid #d2dce7;
+  text-align:center;
+  padding:0 12px;
+  border-left:1px solid #cbd9e7;
 }
-
-.feature:last-child{
-    border-left:none;
-}
-
-.feature-icon{
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.feature-title{
-    font-size:16px;
-    font-weight:bold;
-    color:#063b78;
-}
-
-.feature-text{
-    font-size:13px;
-    color:#455b72;
-    margin-top:5px;
-}
-
-/* FOOTER */
+.feature:last-child{border-left:0}
+.feature-icon{font-size:31px;margin-bottom:7px}
+.feature-title{font-size:17px;font-weight:800}
+.feature-sub{font-size:14px;margin-top:4px;color:#233f5e}
 .footer{
-    margin-top:20px;
-    background:#0755ad;
-    color:white;
-    text-align:center;
-    padding:18px;
-    border-radius:20px 20px 0 0;
-    font-size:15px;
+  margin-top:18px;
+  background:linear-gradient(135deg,#168ddd,#075eb9);
+  color:#fff;
+  border-radius:25px 25px 0 0;
+  text-align:center;
+  padding:18px 12px;
+  font-size:15px;
 }
-
-/* MOBILE */
 @media(max-width:650px){
-
-    .page{
-        padding:15px 10px 25px;
-    }
-
-    .logo{
-        width:150px;
-        height:150px;
-    }
-
-    h1{
-        font-size:27px;
-    }
-
-    .english{
-        font-size:23px;
-    }
-
-    .subtitle{
-        font-size:17px;
-    }
-
-    .section-title{
-        font-size:22px;
-    }
-
-    .line{
-        width:60px;
-    }
-
-    .card{
-        min-height:72px;
-        padding:8px 18px;
-    }
-
-    .number{
-        font-size:23px;
-    }
-
-    .social{
-        grid-template-columns:1fr;
-    }
-
-    .features{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
-
-    .feature{
-        border-left:none;
-        border-bottom:1px solid #d2dce7;
-        padding-bottom:12px;
-    }
-
-    .feature:nth-child(3),
-    .feature:nth-child(4){
-        border-bottom:none;
-    }
-
-    .manager-title{
-        font-size:19px;
-    }
-
-    .manager-name{
-        font-size:18px;
-    }
+  .page{padding:28px 18px 18px}
+  .logo{width:86vw;max-height:160px}
+  .subtitle{margin:24px 0 26px}
+  .section-title:before,.section-title:after{width:52px}
+  .card{min-height:76px}
+  .action{width:55px;height:55px}
+  .socials{gap:10px}
+  .social{min-height:92px;gap:10px;padding:8px}
+  .social-icon{width:54px;height:54px}
+  .social-name{font-size:18px}
+  .social-user{font-size:16px}
+  .features{grid-template-columns:repeat(2,1fr);gap:18px}
+  .feature:nth-child(2){border-left:0}
+  .feature:nth-child(1),.feature:nth-child(2){padding-bottom:12px}
+}
+@media(max-width:430px){
+  .title{font-size:27px}
+  .english{font-size:23px}
+  .section-title{font-size:23px}
+  .section-title:before,.section-title:after{width:38px}
+  .number{font-size:20px}
+  .socials{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
+<main class="page">
 
-<div class="page">
+  <!-- اسم فایل لوگویی که در GitHub آپلود کرده‌ای را اینجا بگذار.
+       اگر اسم فایل logo.png است، همین خط را تغییر نده. -->
+  <div class="logo-wrap">
+    <img class="logo" src="logo.png" alt="شرکت تجارتی بنائی خالد">
+  </div>
 
-<!-- HEADER -->
-<header class="header">
+  <h1 class="title">شرکت تجارتی بنائی خالد</h1>
+  <div class="english">Banai Khaled Trade Co.</div>
+  <div class="subtitle">توزیع محصولات صحی و لوازم طبی</div>
 
-    <div class="logo">
-        <img src="logo.png" alt="لوگوی شرکت تجارتی بنائی خالد">
-    </div>
+  <div class="section-title">
+    <span>شماره‌های تماس</span>
+    <span class="icon">📞</span>
+  </div>
 
-    <h1>شرکت تجارتی بنائی خالد</h1>
-
-    <div class="english">
-        Banai Khaled Trade Co.
-    </div>
-
-    <div class="subtitle">
-        توزیع محصولات صحی و لوازم طبی
-    </div>
-
-</header>
-
-
-<!-- CONTACT -->
-<div class="section-title">
-    <span class="line"></span>
-    <span>📞 شماره‌های تماس</span>
-    <span class="line"></span>
-</div>
-
-<div class="cards">
-
-<a class="card" href="tel:0797038044">
-    <div class="icon phone">
-        <svg viewBox="0 0 24 24">
-            <path d="M6.6 10.8c1.4 2.7 3.9 4.9 6.8 6.1l2.3-2.3c.3-.3.8-.4 1.2-.2
-            1 .3 2 .5 3 .5.6 0 1.1.5 1.1 1.1V19c0 .6-.5 1.1-1.1 1.1
-            C11.7 20.1 3.9 12.3 3.9 4.1 3.9 3.5 4.4 3 5 3h3
-            c.6 0 1.1.5 1.1 1.1 0 1 .2 2 .5 3 .1.4 0 .9-.3 1.2l-2.7 2.5z"/>
-        </svg>
-    </div>
-    <div class="number">0797038044</div>
-</a>
-
-<a class="card" href="tel:0792131886">
-    <div class="icon phone">
-        <svg viewBox="0 0 24 24">
-            <path d="M6.6 10.8c1.4 2.7 3.9 4.9 6.8 6.1l2.3-2.3c.3-.3.8-.4 1.2-.2
-            1 .3 2 .5 3 .5.6 0 1.1.5 1.1 1.1V19c0 .6-.5 1.1-1.1 1.1
-            C11.7 20.1 3.9 12.3 3.9 4.1 3.9 3.5 4.4 3 5 3h3
-            c.6 0 1.1.5 1.1 1.1 0 1 .2 2 .5 3 .1.4 0 .9-.3 1.2l-2.7 2.5z"/>
-        </svg>
-    </div>
-    <div class="number">0792131886</div>
-</a>
-
-<a class="card" href="tel:0795287181">
-    <div class="icon phone">
-        <svg viewBox="0 0 24 24">
-            <path d="M6.6 10.8c1.4 2.7 3.9 4.9 6.8 6.1l2.3-2.3c.3-.3.8-.4 1.2-.2
-            1 .3 2 .5 3 .5.6 0 1.1.5 1.1 1.1V19c0 .6-.5 1.1-1.1 1.1
-            C11.7 20.1 3.9 12.3 3.9 4.1 3.9 3.5 4.4 3 5 3h3
-            c.6 0 1.1.5 1.1 1.1 0 1 .2 2 .5 3 .1.4 0 .9-.3 1.2l-2.7 2.5z"/>
-        </svg>
-    </div>
-    <div class="number">0795287181</div>
-</a>
-
-</div>
-
-
-<!-- WHATSAPP -->
-<div class="section-title whatsapp-title">
-    <span class="line"></span>
-    <span>واتساپ</span>
-    <span class="line"></span>
-</div>
-
-<div class="cards">
-
-<a class="card" href="https://wa.me/93779765000" target="_blank">
-    <div class="icon whatsapp">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 0 0-8.7 15l-1.1 4 4.1-1.1A10 10 0 1 0 12 2zm0 18
-            c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.4.6.6-2.3-.2-.3A8 8 0 1 1 12 20zm4.4-6
-            c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.1-.2.2-.4.1
-            -.2-.1-.8-.3-1.5-.9-.6-.5-1.1-1.1-1.2-1.3-.1-.2 0-.3.1-.4l.4-.5
-            c.1-.1.1-.2.2-.3 0-.1 0-.2-.1-.4l-.7-1.6c-.1-.2-.3-.4-.5-.4h-.4
-            c-.2 0-.4.1-.5.2-.2.2-.7.7-.7 1.7s.7 2  .8 2.1c.1.1 1.4 2.2
-            3.5 3.1.5.2.9.4 1.2.5.5.2 1 .2 1.4.1.4-.1 1.4-.6 1.6-1.2
-            .2-.6.2-1.1.1-1.2-.1-.1-.3-.1-.5-.2z"/>
-        </svg>
-    </div>
-    <div class="number">0779765000</div>
-</a>
-
-<a class="card" href="https://wa.me/93795287181" target="_blank">
-    <div class="icon whatsapp">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 0 0-8.7 15l-1.1 4 4.1-1.1A10 10 0 1 0 12 2zm0 18
-            c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.4.6.6-2.3-.2-.3A8 8 0 1 1 12 20zm4.4-6
-            c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.1-.2.2-.4.1
-            -.2-.1-.8-.3-1.5-.9-.6-.5-1.1-1.1-1.2-1.3-.1-.2 0-.3.1-.4l.4-.5
-            c.1-.1.1-.2.2-.3 0-.1 0-.2-.1-.4l-.7-1.6c-.1-.2-.3-.4-.5-.4h-.4
-            c-.2 0-.4.1-.5.2-.2.2-.7.7-.7 1.7s.7 2 .8 2.1c.1.1 1.4 2.2
-            3.5 3.1.5.2.9.4 1.2.5.5.2 1 .2 1.4.1.4-.1 1.4-.6 1.6-1.2
-            .2-.6.2-1.1.1-1.2-.1-.1-.3-.1-.5-.2z"/>
-        </svg>
-    </div>
-    <div class="number">0795287181</div>
-</a>
-
-<a class="card" href="https://wa.me/93792131883" target="_blank">
-    <div class="icon whatsapp">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 0 0-8.7 15l-1.1 4 4.1-1.1A10 10 0 1 0 12 2zm0 18
-            c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.4.6.6-2.3-.2-.3A8 8 0 1 1 12 20zm4.4-6
-            c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.1-.2.2-.4.1
-            -.2-.1-.8-.3-1.5-.9-.6-.5-1.1-1.1-1.2-1.3-.1-.2 0-.3.1-.4l.4-.5
-            c.1-.1.1-.2.2-.3 0-.1 0-.2-.1-.4l-.7-1.6c-.1-.2-.3-.4-.5-.4h-.4
-            c-.2 0-.4.1-.5.2-.2.2-.7.7-.7 1.7s.7 2 .8 2.1c.1.1 1.4 2.2
-            3.5 3.1.5.2.9.4 1.2.5.5.2 1 .2 1.4.1.4-.1 1.4-.6 1.6-1.2
-            .2-.6.2-1.1.1-1.2-.1-.1-.3-.1-.5-.2z"/>
-        </svg>
-    </div>
-    <div class="number">0792131883</div>
-</a>
-
-</div>
-
-
-<!-- MANAGEMENT -->
-<div class="manager">
-
-    <div class="person">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0-8
-            a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM4 22a8 8 0 0 1 16 0H4z"/>
-        </svg>
-    </div>
-
-    <div class="manager-info">
-        <div class="manager-title">مدیریت و حسابداری</div>
-        <div class="manager-name">وکیل احمد صالح</div>
-        <div class="manager-number">0797038044</div>
-    </div>
-
-    <a href="tel:0797038044" class="icon phone">
-        <svg viewBox="0 0 24 24">
-            <path d="M6.6 10.8c1.4 2.7 3.9 4.9 6.8 6.1l2.3-2.3c.3-.3.8-.4
-            1.2-.2 1 .3 2 .5 3 .5.6 0 1.1.5 1.1 1.1V19c0 .6-.5 1.1-1.1
-            1.1C11.7 20.1 3.9 12.3 3.9 4.1 3.9 3.5 4.4 3 5 3h3
-            c.6 0 1.1.5 1.1 1.1 0 1 .2 2 .5 3 .1.4 0 .9-.3 1.2l-2.7 2.5z"/>
-        </svg>
+  <div class="cards">
+    <a class="card phone" href="tel:0797038044">
+      <span class="number">0797038044</span><span class="action">☎</span>
     </a>
+    <a class="card phone" href="tel:0792131886">
+      <span class="number">0792131886</span><span class="action">☎</span>
+    </a>
+    <a class="card phone" href="tel:0795287181">
+      <span class="number">0795287181</span><span class="action">☎</span>
+    </a>
+  </div>
 
-</div>
+  <div class="section-title whatsapp-title">
+    <span>واتساپ</span>
+    <span class="icon">◉</span>
+  </div>
 
+  <div class="cards">
+    <a class="card wa" href="https://wa.me/93779765000">
+      <span class="number">0779765000</span><span class="action">◉</span>
+    </a>
+    <a class="card wa" href="https://wa.me/93795287181">
+      <span class="number">0795287181</span><span class="action">◉</span>
+    </a>
+    <a class="card wa" href="https://wa.me/93792131883">
+      <span class="number">0792131883</span><span class="action">◉</span>
+    </a>
+  </div>
 
-<!-- SOCIAL -->
-<div class="section-title">
-    <span class="line"></span>
-    <span>🔗 شبکه‌های اجتماعی</span>
-    <span class="line"></span>
-</div>
+  <div class="section-title">
+    <span>شبکه‌های اجتماعی</span>
+    <span class="icon">●</span>
+  </div>
 
-<div class="social">
+  <div class="socials">
+    <a class="social" href="#" aria-label="Instagram">
+      <span class="social-icon instagram">◎</span>
+      <span class="social-text"><div class="social-name">اینستاگرام</div><div class="social-user">@USERNAME</div></span>
+    </a>
+    <a class="social" href="#" aria-label="Telegram">
+      <span class="social-icon telegram">➤</span>
+      <span class="social-text"><div class="social-name">تلگرام</div><div class="social-user">@USERNAME</div></span>
+    </a>
+  </div>
 
-<a class="social-card" href="https://instagram.com/USERNAME" target="_blank">
-    <div>
-        <div class="social-name">اینستاگرام</div>
-        <div class="username">@USERNAME</div>
-    </div>
+  <div class="features">
+    <div class="feature"><div class="feature-icon">🛡️</div><div class="feature-title">محصولات اصیل</div><div class="feature-sub">با ضمانت کیفیت</div></div>
+    <div class="feature"><div class="feature-icon">🏅</div><div class="feature-title">تجربه معتبر</div><div class="feature-sub">خدمات مطمئن</div></div>
+    <div class="feature"><div class="feature-icon">🚚</div><div class="feature-title">تحویل سریع</div><div class="feature-sub">در سراسر کشور</div></div>
+    <div class="feature"><div class="feature-icon">🎧</div><div class="feature-title">پشتیبانی 24/7</div><div class="feature-sub">همیشه در کنار شما</div></div>
+  </div>
 
-    <div class="social-icon instagram">
-        <svg viewBox="0 0 24 24">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7
-            a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10
-            a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5
-            3.5A4.5 4.5 0 1 1 12 16a4.5 4.5 0 0 1 0-9zm0 2A2.5
-            2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5zM17.5 6a1 1 0
-            1 0 0 2 1 1 0 0 0 0-2z"/>
-        </svg>
-    </div>
-</a>
-
-<a class="social-card" href="https://t.me/USERNAME" target="_blank">
-    <div>
-        <div class="social-name">تلگرام</div>
-        <div class="username">@USERNAME</div>
-    </div>
-
-    <div class="social-icon telegram">
-        <svg viewBox="0 0 24 24">
-            <path d="M21.5 3.5 3.8 10.3c-1.2.5-1.2 1.2-.2 1.5l4.5
-            1.4 1.7 5.4c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.2-2.1
-            4.5 3.3c.8.4 1.4.2 1.6-.8l2.9-13.6c.3-1.2-.5-1.7-1.3-1.3z
-            M8.8 12.8l9.8-6.2c.5-.3.9-.1.5.2l-8 7.2-.3 3.1-2-4.3z"/>
-        </svg>
-    </div>
-</a>
-
-</div>
-
-
-<!-- FEATURES -->
-<div class="features">
-
-<div class="feature">
-    <div class="feature-icon">🛡️</div>
-    <div class="feature-title">محصولات اصیل</div>
-    <div class="feature-text">با ضمانت کیفیت</div>
-</div>
-
-<div class="feature">
-    <div class="feature-icon">🏅</div>
-    <div class="feature-title">تجربه معتبر</div>
-    <div class="feature-text">خدمات مطمئن</div>
-</div>
-
-<div class="feature">
-    <div class="feature-icon">🚚</div>
-    <div class="feature-title">تحویل سریع</div>
-    <div class="feature-text">در سراسر کشور</div>
-</div>
-
-<div class="feature">
-    <div class="feature-icon">🎧</div>
-    <div class="feature-title">پشتیبانی 24/7</div>
-    <div class="feature-text">همیشه در کنار شما</div>
-</div>
-
-</div>
-
-
-<footer class="footer">
-© 2025 Banai Khaled Trade Co. — تمامی حقوق محفوظ است
-</footer>
-
-</div>
-
+  <div class="footer">© 2025 Banai Khaled Trade Co. — تمامی حقوق محفوظ است</div>
+</main>
 </body>
-    </html>
+</html>
+'''
+
+out = Path("/mnt/data/index_banai_khaled_exact.html")
+out.write_text(html, encoding="utf-8")
+print(out)
+          
