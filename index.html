@@ -9,281 +9,213 @@
 <style>
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 body{
-    font-family:Tahoma, Arial, sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%, #dceeff 0%, transparent 35%),
-        radial-gradient(circle at 90% 30%, #d3eaff 0%, transparent 35%),
-        linear-gradient(135deg,#eaf6ff,#ffffff,#e5f2ff);
-    color:#12345a;
-    min-height:100vh;
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:linear-gradient(145deg,#dff2ff,#eef8ff,#d7edff);
+    color:#142536;
 }
 
 .container{
-    width:94%;
     max-width:650px;
     margin:auto;
-    padding:25px 0 35px;
+    padding:22px 16px 50px;
 }
 
-/* لوگو */
-.logo-box{
-    background:rgba(255,255,255,.88);
-    border-radius:30px;
-    padding:25px 20px 20px;
+/* Header */
+.header{
+    background:rgba(255,255,255,.94);
+    border-radius:32px;
+    padding:30px 20px;
     text-align:center;
-    box-shadow:0 10px 35px rgba(30,90,150,.13);
-    margin-bottom:20px;
+    box-shadow:0 12px 35px rgba(20,80,130,.12);
+    border:1px solid rgba(255,255,255,.8);
 }
 
 .logo{
-    width:210px;
-    max-width:75%;
-    height:auto;
-    object-fit:contain;
-    margin:auto;
-    display:block;
+    width:130px;
+    height:130px;
+    margin:0 auto 18px;
+    border-radius:32px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
+    overflow:hidden;
+}
+
+/* لوگوی BK */
+.logo svg{
+    width:115px;
+    height:115px;
 }
 
 .company-name{
-    font-size:27px;
+    font-size:28px;
     font-weight:bold;
-    color:#073c7d;
-    margin-top:12px;
+    color:#073e78;
+    margin:8px 0 12px;
 }
 
 .company-en{
-    color:#ed573c;
-    font-size:17px;
+    font-size:18px;
+    color:#e15b4b;
     font-weight:bold;
-    margin-top:8px;
+    margin-bottom:18px;
 }
 
 .description{
-    margin-top:14px;
-    font-size:17px;
-    color:#51677d;
+    font-size:18px;
+    color:#596b7b;
+    line-height:1.9;
 }
 
-/* عنوان بخش */
+/* Section */
+.section{
+    margin-top:35px;
+}
+
 .section-title{
     display:flex;
     align-items:center;
     justify-content:center;
     gap:10px;
-    margin:25px 0 13px;
-    font-size:21px;
+    color:#064783;
+    font-size:25px;
     font-weight:bold;
-    color:#064a96;
+    margin-bottom:18px;
 }
 
 .section-title::before,
 .section-title::after{
     content:"";
-    height:2px;
+    height:3px;
+    background:#2184ce;
     flex:1;
-    max-width:75px;
-    background:#2d80d7;
+    border-radius:10px;
 }
 
-/* کارت */
+.section-icon{
+    font-size:29px;
+}
+
+/* Cards */
 .card{
+    background:rgba(255,255,255,.95);
+    border-radius:25px;
+    margin:14px 0;
+    min-height:105px;
     display:flex;
     align-items:center;
-    gap:13px;
-    background:rgba(255,255,255,.94);
-    border-radius:18px;
-    padding:13px 15px;
-    margin:10px 0;
-    box-shadow:0 7px 20px rgba(38,94,145,.13);
-    border:1px solid rgba(120,180,230,.22);
-    text-decoration:none;
-    color:#183957;
+    justify-content:space-between;
+    padding:16px 20px;
+    box-shadow:0 8px 22px rgba(30,100,150,.12);
     transition:.2s;
 }
 
-.card:active{
-    transform:scale(.97);
+.card:hover{
+    transform:translateY(-2px);
 }
 
-.icon{
-    width:48px;
-    height:48px;
-    min-width:48px;
-    border-radius:14px;
+.info{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-size:21px;
+    color:#263746;
+    direction:ltr;
+}
+
+.number{
+    letter-spacing:1px;
+}
+
+.button{
+    width:62px;
+    height:62px;
+    border-radius:19px;
     display:flex;
     align-items:center;
     justify-content:center;
     color:white;
-}
-
-.phone-icon{
-    background:linear-gradient(135deg,#1789e8,#1764c4);
-}
-
-.whatsapp-icon{
-    background:linear-gradient(135deg,#36d86a,#16a94a);
-}
-
-.social-icon{
-    width:55px;
-    height:55px;
-    min-width:55px;
-    border-radius:16px;
-}
-
-.number{
-    direction:ltr;
-    text-align:right;
-    flex:1;
-    font-size:18px;
-    font-weight:bold;
-}
-
-.arrow{
-    font-size:20px;
-    color:#7190ad;
-}
-
-/* شبکه های اجتماعی */
-.social-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.social-card{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:white;
-    border-radius:20px;
-    padding:12px;
-    min-height:82px;
-    box-shadow:0 7px 20px rgba(38,94,145,.12);
     text-decoration:none;
-    color:#173a5d;
+    flex-shrink:0;
 }
 
-.instagram{
-    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+.button svg{
+    width:34px;
+    height:34px;
+    fill:white;
+}
+
+.call{
+    background:#1685d9;
+}
+
+.whatsapp{
+    background:#25D366;
 }
 
 .telegram{
-    background:linear-gradient(135deg,#29a9ea,#168bd0);
+    background:#229ED9;
 }
 
-.social-text{
-    text-align:right;
-    overflow:hidden;
+.instagram{
+    background:linear-gradient(135deg,#833AB4,#E1306C,#F77737);
 }
 
-.social-name{
-    font-weight:bold;
-    font-size:15px;
+/* Empty social cards */
+.empty{
+    opacity:.78;
 }
 
-.username{
-    direction:ltr;
-    color:#8295a8;
-    margin-top:5px;
-    font-size:13px;
+.empty-text{
+    color:#7a8995;
+    font-size:17px;
 }
 
-/* امکانات */
-.features{
-    margin-top:25px;
-    background:rgba(255,255,255,.92);
-    border-radius:25px;
-    padding:18px 10px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    box-shadow:0 8px 25px rgba(40,100,160,.12);
+.disabled{
+    background:#d7e0e7;
+    cursor:default;
 }
 
-.feature{
-    text-align:center;
-    padding:4px 7px;
-    border-left:1px solid #d9e7f3;
-}
-
-.feature:last-child{
-    border-left:none;
-}
-
-.feature-icon{
-    font-size:27px;
-    margin-bottom:7px;
-}
-
-.feature-title{
-    font-size:12px;
-    font-weight:bold;
-    color:#174e88;
-    line-height:1.7;
-}
-
-/* ذخیره شماره */
-.save-btn{
-    width:100%;
-    border:none;
-    border-radius:17px;
-    background:linear-gradient(135deg,#075eb5,#168de3);
-    color:white;
-    padding:15px;
-    font-size:16px;
-    font-family:inherit;
-    font-weight:bold;
-    margin-top:18px;
-    box-shadow:0 8px 20px rgba(15,105,190,.25);
-}
-
-/* فوتر */
+/* Footer */
 .footer{
-    margin-top:25px;
-    background:linear-gradient(135deg,#0753a0,#063d7b);
-    color:white;
-    border-radius:22px;
-    padding:17px;
     text-align:center;
-    font-size:12px;
+    margin-top:40px;
+    color:#647789;
+    font-size:14px;
     line-height:2;
 }
 
-/* موبایل */
-@media(max-width:450px){
+@media(max-width:420px){
 
     .company-name{
-        font-size:23px;
+        font-size:24px;
     }
 
     .company-en{
-        font-size:15px;
+        font-size:16px;
     }
 
     .description{
-        font-size:15px;
+        font-size:16px;
     }
 
-    .social-grid{
-        grid-template-columns:1fr;
+    .section-title{
+        font-size:22px;
     }
 
-    .features{
-        grid-template-columns:repeat(2,1fr);
-        gap:14px;
+    .number{
+        font-size:17px;
     }
 
-    .feature{
-        border-left:none;
-    }
-
-    .logo{
-        width:190px;
+    .button{
+        width:58px;
+        height:58px;
     }
 }
 </style>
@@ -293,11 +225,47 @@ body{
 
 <div class="container">
 
-    <!-- لوگو و مشخصات شرکت -->
-    <div class="logo-box">
+    <!-- HEADER -->
+    <div class="header">
 
-        <!-- نام فایل لوگوی واقعی شما -->
-        <img src="logo.png" class="logo" alt="Banai Khaled Trade Co.">
+        <div class="logo">
+
+            <!-- لوگوی BK -->
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="120" height="120" rx="28" fill="#ffffff"/>
+
+                <!-- شکل آبی -->
+                <path d="M72 18
+                         C91 26 104 39 105 55
+                         C106 73 94 91 74 101
+                         C84 84 87 67 81 53
+                         C76 42 67 31 55 25
+                         Z"
+                      fill="#173d83"/>
+
+                <!-- شکل سرخ -->
+                <path d="M54 21
+                         C42 28 34 40 34 52
+                         C34 66 44 78 57 84
+                         C51 72 49 61 53 50
+                         C57 39 64 31 72 26
+                         Z"
+                      fill="#e64b3f"/>
+
+                <circle cx="63" cy="18" r="7" fill="#173d83"/>
+
+                <text x="60"
+                      y="73"
+                      text-anchor="middle"
+                      font-family="Georgia,serif"
+                      font-size="27"
+                      font-weight="bold"
+                      fill="#ffffff">BK</text>
+
+            </svg>
+
+        </div>
 
         <div class="company-name">
             شرکت تجارتی بنائی خالد
@@ -314,225 +282,200 @@ body{
     </div>
 
 
-    <!-- تماس -->
-    <div class="section-title">
-        📞 شماره‌های تماس
-    </div>
+    <!-- CALL -->
+    <div class="section">
 
-    <a class="card" href="tel:0797038044">
-        <div class="icon phone-icon">
-            ☎
+        <div class="section-title">
+            <span>شماره‌های تماس</span>
+            <span class="section-icon">📞</span>
         </div>
 
-        <div class="number">
-            0797038044
-        </div>
-
-        <div class="arrow">‹</div>
-    </a>
-
-
-    <a class="card" href="tel:0792131886">
-        <div class="icon phone-icon">
-            ☎
-        </div>
-
-        <div class="number">
-            0792131886
-        </div>
-
-        <div class="arrow">‹</div>
-    </a>
-
-
-    <a class="card" href="tel:0795287181">
-        <div class="icon phone-icon">
-            ☎
-        </div>
-
-        <div class="number">
-            0795287181
-        </div>
-
-        <div class="arrow">‹</div>
-    </a>
-
-
-    <!-- واتساپ -->
-    <div class="section-title">
-        💬 واتساپ
-    </div>
-
-    <a class="card" href="https://wa.me/93779765000">
-        <div class="icon whatsapp-icon">
-            ☘
-        </div>
-
-        <div class="number">
-            0779765000
-        </div>
-
-        <div class="arrow">‹</div>
-    </a>
-
-
-    <a class="card" href="https://wa.me/93795287181">
-        <div class="icon whatsapp-icon">
-            ☘
-        </div>
-
-        <div class="number">
-            0795287181
-        </div>
-
-        <div class="arrow">‹</div>
-    </a>
-
-
-    <a class="card" href="https://wa.me/93792131883">
-        <div class="icon whatsapp-icon">
-            ☘
-        </div>
-
-        <div class="number">
-            0792131883
-        </div>
-
-        <div class="arrow">‹</div>
-    </a>
-
-
-    <!-- شبکه های اجتماعی -->
-    <div class="section-title">
-        🌐 شبکه‌های اجتماعی
-    </div>
-
-    <div class="social-grid">
-
-        <!-- اینستاگرام؛ بعداً لینک را اضافه می‌کنیم -->
-        <a class="social-card" href="#">
-            <div class="icon social-icon instagram">
-                ◎
+        <div class="card">
+            <div class="info">
+                <span class="number">0797038044</span>
             </div>
 
-            <div class="social-text">
-                <div class="social-name">
-                    اینستاگرام
-                </div>
-
-                <div class="username">
-                    —
-                </div>
-            </div>
-        </a>
-
-
-        <!-- تلگرام؛ بعداً لینک را اضافه می‌کنیم -->
-        <a class="social-card" href="#">
-            <div class="icon social-icon telegram">
-                ➤
-            </div>
-
-            <div class="social-text">
-                <div class="social-name">
-                    تلگرام
-                </div>
-
-                <div class="username">
-                    —
-                </div>
-            </div>
-        </a>
-
-    </div>
-
-
-    <!-- امکانات -->
-    <div class="features">
-
-        <div class="feature">
-            <div class="feature-icon">🛡️</div>
-            <div class="feature-title">
-                محصولات اصیل<br>
-                با ضمانت کیفیت
-            </div>
+            <a class="button call" href="tel:0797038044">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6.6 10.8c1.4 2.7 3.9 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2
+                    1.3.4 2.6.7 3.9.7.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2
+                    C11.4 21.2 2.8 12.6 2.8 2.8 2.8 2.1 3.3 1.6 4 1.6h3.1
+                    c.7 0 1.2.5 1.2 1.2 0 1.3.2 2.6.7 3.9.1.4 0 .9-.2 1.2z"/>
+                </svg>
+            </a>
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">🏅</div>
-            <div class="feature-title">
-                تجربه معتبر<br>
-                خدمات مطمئن
+        <div class="card">
+            <div class="info">
+                <span class="number">0792131886</span>
             </div>
+
+            <a class="button call" href="tel:0792131886">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6.6 10.8c1.4 2.7 3.9 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2
+                    1.3.4 2.6.7 3.9.7.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2
+                    C11.4 21.2 2.8 12.6 2.8 2.8 2.8 2.1 3.3 1.6 4 1.6h3.1
+                    c.7 0 1.2.5 1.2 1.2 0 1.3.2 2.6.7 3.9.1.4 0 .9-.2 1.2z"/>
+                </svg>
+            </a>
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">🚚</div>
-            <div class="feature-title">
-                تحویل سریع<br>
-                در سراسر کشور
+        <div class="card">
+            <div class="info">
+                <span class="number">0795287181</span>
             </div>
-        </div>
 
-        <div class="feature">
-            <div class="feature-icon">🎧</div>
-            <div class="feature-title">
-                پشتیبانی<br>
-                همیشه در کنار شما
-            </div>
+            <a class="button call" href="tel:0795287181">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6.6 10.8c1.4 2.7 3.9 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2
+                    1.3.4 2.6.7 3.9.7.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2
+                    C11.4 21.2 2.8 12.6 2.8 2.8 2.8 2.1 3.3 1.6 4 1.6h3.1
+                    c.7 0 1.2.5 1.2 1.2 0 1.3.2 2.6.7 3.9.1.4 0 .9-.2 1.2z"/>
+                </svg>
+            </a>
         </div>
 
     </div>
 
 
-    <!-- ذخیره شماره -->
-    <button class="save-btn" onclick="saveContact()">
-        📱 ذخیره شماره شرکت در موبایل
-    </button>
+    <!-- WHATSAPP -->
+    <div class="section">
+
+        <div class="section-title">
+            <span>واتساپ</span>
+            <span class="section-icon">💬</span>
+        </div>
+
+        <div class="card">
+            <div class="info">
+                <span class="number">0779765000</span>
+            </div>
+
+            <a class="button whatsapp"
+               href="https://wa.me/93779765000"
+               target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0
+                    C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7
+                    c1.7.9 3.5 1.3 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8
+                    0-3.2-1.2-6.1-3.5-8.3zM12.1 21.5c-1.7 0-3.4-.5-4.8-1.3l-.3-.2
+                    -3.8 1 1-3.7-.2-.3c-1-1.5-1.5-3.3-1.5-5.1
+                    0-5.3 4.3-9.6 9.6-9.6 2.6 0 5 1 6.8 2.8
+                    1.8 1.8 2.8 4.2 2.8 6.8-.1 5.3-4.4 9.6-9.6 9.6z"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="info">
+                <span class="number">0795287181</span>
+            </div>
+
+            <a class="button whatsapp"
+               href="https://wa.me/93795287181"
+               target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0
+                    C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7
+                    c1.7.9 3.5 1.3 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8
+                    0-3.2-1.2-6.1-3.5-8.3zM12.1 21.5c-1.7 0-3.4-.5-4.8-1.3l-.3-.2
+                    -3.8 1 1-3.7-.2-.3c-1-1.5-1.5-3.3-1.5-5.1
+                    0-5.3 4.3-9.6 9.6-9.6 2.6 0 5 1 6.8 2.8
+                    1.8 1.8 2.8 4.2 2.8 6.8-.1 5.3-4.4 9.6-9.6 9.6z"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="info">
+                <span class="number">0792131883</span>
+            </div>
+
+            <a class="button whatsapp"
+               href="https://wa.me/93792131883"
+               target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0
+                    C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7
+                    c1.7.9 3.5 1.3 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8
+                    0-3.2-1.2-6.1-3.5-8.3zM12.1 21.5c-1.7 0-3.4-.5-4.8-1.3l-.3-.2
+                    -3.8 1 1-3.7-.2-.3c-1-1.5-1.5-3.3-1.5-5.1
+                    0-5.3 4.3-9.6 9.6-9.6 2.6 0 5 1 6.8 2.8
+                    1.8 1.8 2.8 4.2 2.8 6.8-.1 5.3-4.4 9.6-9.6 9.6z"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
 
 
-    <!-- فوتر -->
+    <!-- TELEGRAM -->
+    <div class="section">
+
+        <div class="section-title">
+            <span>تلگرام</span>
+            <span class="section-icon">✈️</span>
+        </div>
+
+        <div class="card empty">
+
+            <div class="info">
+                <span class="empty-text">
+                    لینک تلگرام هنوز اضافه نشده
+                </span>
+            </div>
+
+            <div class="button telegram disabled">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21.8 3.2 2.9 10.5c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5
+                    1.8 5.6c.2.6.1.8.7.8.4 0 .6-.2.8-.4l2.3-2.2
+                    4.8 3.5c.9.5 1.5.3 1.7-.8l3.1-15.5c.3-1.4-.5-2-1.7-1.3z"/>
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INSTAGRAM -->
+    <div class="section">
+
+        <div class="section-title">
+            <span>اینستاگرام</span>
+            <span class="section-icon">📷</span>
+        </div>
+
+        <div class="card empty">
+
+            <div class="info">
+                <span class="empty-text">
+                    لینک اینستاگرام هنوز اضافه نشده
+                </span>
+            </div>
+
+            <div class="button instagram disabled">
+                <svg viewBox="0 0 24 24">
+                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7
+                    a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10
+                    a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3
+                    a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6
+                    3 3 0 0 0 0-6zm5.5-2.5a1.2 1.2 0 1 1 0 2.4
+                    1.2 1.2 0 0 1 0-2.4z"/>
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div class="footer">
-        © 2026 Banai Khaled Trade Co.<br>
-        تمامی حقوق محفوظ است
+        شرکت تجارتی بنائی خالد<br>
+        Banai Khaled Trade Co.
     </div>
 
 </div>
 
-
-<script>
-
-function saveContact(){
-
-    const vcard =
-`BEGIN:VCARD
-VERSION:3.0
-FN:شرکت تجارتی بنائی خالد
-ORG:Banai Khaled Trade Co.
-TEL;TYPE=CELL:0797038044
-TEL;TYPE=CELL:0792131886
-TEL;TYPE=CELL:0795287181
-NOTE:توزیع محصولات صحی و لوازم طبی
-END:VCARD`;
-
-    const blob = new Blob([vcard], {
-        type:"text/vcard"
-    });
-
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "Banai-Khaled.vcf";
-
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-
-    URL.revokeObjectURL(url);
-}
-
-</script>
-
 </body>
-</html>
+                                  </html>
