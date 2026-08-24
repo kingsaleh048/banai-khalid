@@ -1,46 +1,162 @@
-from pathlib import Path
-import base64
-
-img_path = Path("/mnt/data/9708.png")
-data = base64.b64encode(img_path.read_bytes()).decode("ascii")
-
-html = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>شرکت تجارتی بنائی خالد</title>
-<style>
-*{{box-sizing:border-box}}
-html,body{{margin:0;padding:0;background:#eef6ff}}
-.page{{position:relative;width:100%;max-width:1028px;margin:auto;line-height:0}}
-.page img{{display:block;width:100%;height:auto}}
-a{{position:absolute;display:block;background:transparent;-webkit-tap-highlight-color:transparent}}
-.phone1{{left:17%;top:31.0%;width:66%;height:5.3%}}
-.phone2{{left:17%;top:37.0%;width:66%;height:5.3%}}
-.phone3{{left:17%;top:43.0%;width:66%;height:5.3%}}
-.wa1{{left:17%;top:54.2%;width:66%;height:5.2%}}
-.wa2{{left:17%;top:59.5%;width:66%;height:5.2%}}
-.wa3{{left:17%;top:64.8%;width:66%;height:5.2%}}
-.instagram{{left:7%;top:70.8%;width:42%;height:7.2%}}
-.telegram{{right:7%;top:70.8%;width:42%;height:7.2%}}
-</style>
-</head>
-<body>
-<div class="page">
-<img src="data:image/png;base64,{data}" alt="شرکت تجارتی بنائی خالد">
-<a class="phone1" href="tel:0797038044"></a>
-<a class="phone2" href="tel:0792131886"></a>
-<a class="phone3" href="tel:0795287181"></a>
-<a class="wa1" href="https://wa.me/93779765000"></a>
-<a class="wa2" href="https://wa.me/93795287181"></a>
-<a class="wa3" href="https://wa.me/93792131883"></a>
-<a class="instagram" href="#"></a>
-<a class="telegram" href="#"></a>
-</div>
-</body>
-</html>"""
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-out = Path("/mnt/data/index_exact_final.html")
-out.write_text(html, encoding="utf-8")
-print(out)
+<title>شرکت تجارتی بنائی خالد</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma, Arial, sans-serif;
+    color:#12345a;
+    background:
+        radial-gradient(circle at 10% 15%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+        radial-gradient(circle at 90% 25%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+        linear-gradient(135deg,#eaf6ff,#d8edff,#f5fbff);
+    background-size:22px 22px,28px 28px,100% 100%;
+    min-height:100vh;
+}
+
+/* موج‌های پس‌زمینه */
+body:before,
+body:after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(38,126,205,.13);
+    border-radius:45% 55% 60% 40%;
+    pointer-events:none;
+    z-index:0;
+}
+
+body:before{
+    top:-260px;
+    left:-180px;
+    transform:rotate(25deg);
+}
+
+body:after{
+    bottom:-280px;
+    right:-180px;
+    transform:rotate(-25deg);
+}
+
+/* صفحه */
+.container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:25px 18px 35px;
+    position:relative;
+    z-index:1;
+}
+
+/* کارت اصلی */
+.header{
+    background:rgba(255,255,255,.94);
+    border-radius:32px;
+    padding:25px 20px 28px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(34,102,160,.14);
+    border:1px solid rgba(255,255,255,.9);
+}
+
+.logo-box{
+    width:170px;
+    height:150px;
+    margin:0 auto 8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo-box img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.company-fa{
+    font-size:31px;
+    font-weight:bold;
+    color:#064782;
+    margin:8px 0;
+}
+
+.company-en{
+    font-family:Georgia,serif;
+    font-size:25px;
+    color:#df573c;
+    margin:12px 0 20px;
+}
+
+.description{
+    font-size:20px;
+    color:#344b61;
+}
+
+/* عنوان بخش‌ها */
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin:35px 0 16px;
+    font-size:28px;
+    font-weight:bold;
+    color:#075093;
+}
+
+.section-title:before,
+.section-title:after{
+    content:"";
+    height:3px;
+    flex:1;
+    max-width:145px;
+    background:linear-gradient(90deg,transparent,#288bd0);
+    border-radius:10px;
+}
+
+.section-title:after{
+    background:linear-gradient(270deg,transparent,#288bd0);
+}
+
+/* واتساپ سبز */
+.whatsapp-title{
+    color:#19a949;
+}
+
+.whatsapp-title:before,
+.whatsapp-title:after{
+    background:linear-gradient(90deg,transparent,#22c55e);
+}
+
+.whatsapp-title:after{
+    background:linear-gradient(270deg,transparent,#22c55e);
+}
+
+/* کارت شماره */
+.contact-card{
+    background:rgba(255,255,255,.96);
+    min-height:95px;
+    border-radius:25px;
+    margin:13px 0;
+    padding:15px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    box-shadow:0 7px 22px rgba(38,98,143,.10);
+    border:1px solid rgba(200,220
